@@ -12,6 +12,17 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  webpack: (
+    webpackConfig,
+    { webpack },
+  ) => {
+    webpackConfig.resolve.extensionAlias = {
+      '.js': ['.ts', '.tsx', '.js', '.jsx'],
+      '.mjs': ['.mts', '.mjs'],
+      '.cjs': ['.cts', '.cjs'],
+    };
+    return webpackConfig;
+  },
 };
 
 const plugins = [
